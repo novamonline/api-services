@@ -1,0 +1,9 @@
+{
+    "Apps": true,
+    "Business": true,
+    "Flows": true,
+    "Files": true,
+    "Fields": true,
+    "Records": true,
+    "Dataport": true
+}

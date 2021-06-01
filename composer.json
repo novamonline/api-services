@@ -1,0 +1,119 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
+    "license": "MIT",
+    "repositories": {
+        "novamonline/laravel-core": {
+            "type": "vcs",
+            "url": "git@github.com:novamonline/laravel-core.git"
+        }
+    },
+    "require": {
+        "php": "^7.3|^8.0",
+        "fideloper/proxy": "^4.4",
+        "fruitcake/laravel-cors": "^2.0",
+        "guzzlehttp/guzzle": "^7.0.1",
+        "laravel/framework": "^8.40",
+        "laravel/tinker": "^2.5",
+        "novamonline/laravel-core": "dev-master"
+    },
+    "require-dev": {
+        "facade/ignition": "^2.5",
+        "fakerphp/faker": "^1.9.1",
+        "laravel/sail": "^1.0.1",
+        "mockery/mockery": "^1.4.2",
+        "nunomaduro/collision": "^5.0",
+        "phpunit/phpunit": "^9.3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "NovamOnline\\": "modules/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "build-docs": [
+            "@php artisan scribe:generate --force --ansi"
+        ],
+        "initiate": [
+            "@php -r \"file_exists('.env') || copy('.env.example','.env');\"",
+            "@php artisan optimize:clear --ansi",
+            "@php artisan key:generate --ansi",
+            "@php artisan storage:link"
+        ],
+        "build-db":[
+            "@php artisan run:schema --database --force --ansi",
+            "@php artisan run:schema --migrate --ansi"
+        ],
+        "build-prod": [
+            "@php artisan run:schema --migrate --ansi"
+        ],
+        "build-dev": [
+            "@build-db",
+            "@php artisan run:seeders --all --ansi",
+            "@finalize"
+        ],
+        "finalize": [
+            "@php artisan optimize:clear --ansi"
+        ],
+        "pre-setup-actions": [
+            "@composer clear-cache",
+            "@php -r \"!file_exists('vendor') || shell_exec('rm -rf ./vendor');\"",
+            "@php -r \"!file_exists($docs = 'resources/docs') || shell_exec('rm -rf '.$docs);\"",
+            "@php -r \"!file_exists($bak = 'storage/data/backups') || shell_exec('rm -rf '.$bak);\""
+        ],
+        "setup-install": [
+            "@pre-setup-actions",
+            "@composer install --ansi",
+            "@composer build-dev --ansi",
+            "@post-setup-actions"
+        ],
+        "setup-update": [
+            "@pre-setup-actions",
+            "@composer update --ansi",
+            "@composer build-dev --ansi",
+            "@post-setup-actions"
+        ],
+        "post-setup-actions": [
+            "@php artisan optimize:clear --ansi",
+            "@php artisan scribe:generate --force --ansi"
+        ],
+        "post-install-cmd": [
+            "@initiate"
+        ],
+        "post-update-cmd": [
+            "@initiate"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
