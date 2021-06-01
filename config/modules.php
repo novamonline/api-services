@@ -1,6 +1,8 @@
 <?php
 
 use Nwidart\Modules\Activators\FileActivator;
+use Nwidart\Modules\Commands\CommandMakeCommand;
+use Nwidart\Modules\Commands\InstallCommand;
 
 return [
 
@@ -26,7 +28,7 @@ return [
 
     'stubs' => [
         'enabled' => true,
-        'path' => base_path('stubs'),
+        'path' => base_path('stubs/modules'),
         'files' => [
             'routes/web' => 'Routes/web.php',
             'routes/api' => 'Routes/api.php',
@@ -105,7 +107,7 @@ return [
             'migration' => ['path' => 'Database/Migrations', 'generate' => true],
             'seeder' => ['path' => 'Database/Seeders', 'generate' => true],
             'factory' => ['path' => 'Database/factories', 'generate' => true],
-            'model' => ['path' => 'Entities', 'generate' => true],
+            'model' => ['path' => 'Models', 'generate' => true],
             'routes' => ['path' => 'Routes', 'generate' => true],
             'controller' => ['path' => 'Http/Controllers', 'generate' => true],
             'filter' => ['path' => 'Http/Middleware', 'generate' => true],
@@ -212,8 +214,8 @@ return [
     'composer' => [
         'vendor' => 'nwidart',
         'author' => [
-            'name' => 'Nicolas Widart',
-            'email' => 'n.widart@gmail.com',
+            'name' => 'Novam Online',
+            'email' => 'novam.online@gmail.com',
         ],
     ],
 
