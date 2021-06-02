@@ -1,0 +1,13 @@
+{
+    "name": "Flows",
+    "alias": "flows",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "NovamOnline\\Flows\\Providers\\FlowsServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

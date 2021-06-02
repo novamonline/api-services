@@ -1,0 +1,13 @@
+{
+    "name": "Zyzzyx",
+    "alias": "zyzzyx",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "NovamOnline\\Zyzzyx\\Providers\\ZyzzyxServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

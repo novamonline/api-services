@@ -1,0 +1,23 @@
+{
+    "name": "nwidart/dataport",
+    "description": "",
+    "authors": [
+        {
+            "name": "Novam Online",
+            "email": "novam.online@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "NovamOnline\\DataPort\\": ""
+        }
+    }
+}

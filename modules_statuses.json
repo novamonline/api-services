@@ -1,3 +1,8 @@
 {
-    "Apps": true
+    "Apps": true,
+    "Flows": true,
+    "Files": true,
+    "DataPort": true,
+    "Business": true,
+    "Zyzzyx": true
 }

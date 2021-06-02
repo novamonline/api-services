@@ -1,0 +1,13 @@
+{
+    "name": "Files",
+    "alias": "files",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "NovamOnline\\Files\\Providers\\FilesServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

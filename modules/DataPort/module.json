@@ -1,0 +1,13 @@
+{
+    "name": "DataPort",
+    "alias": "dataport",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "NovamOnline\\DataPort\\Providers\\DataPortServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}
